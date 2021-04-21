@@ -1,0 +1,18 @@
+{
+  "name": "moviesDir",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "express": "^4.17.1",
+    "neat-csv": "^6.0.1"
+  }
+}
