@@ -1,16 +1,17 @@
 const express = require('express')
 const Controller = require('./controller')
+const response = require('../../../middlewares/responses')
 
 const router = express.Router()
 
 router.get('/', listMovies)
-// router.get('/:ID', getMovie)
 router.get('/ranked', listMoviesRank)
+router.get('/:ID', getMovie)
 
 
 function listMovies(req, res, next) {
   Controller.readMovies()
-    .then(data => res.send(data))
+    .then(data => response.success(req, res, data))
     .catch(err => next(err))
 }
 
@@ -18,13 +19,15 @@ function getMovie(req, res, next) {
   const { ID } = req.params
 
   Controller.getMovie(ID)
-    .then(data => res.send(data))
+    .then(data => response.success(req, res, data))
     .catch(err => next(err))
 }
 
 function listMoviesRank(req, res, next) {
-  Controller.readMoviesRanked()
-    .then(data => res.send(data))
+  const rank = req.query.rank
+
+  Controller.readMoviesRanked(rank)
+    .then(data => response.success(req, res, data))
     .catch(err => next(err))
 }
 
