@@ -1,0 +1,24 @@
+.header {
+  height: 70px;
+  color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  font-size: 18px;
+}
+
+.logo {
+  font-size: 18px;
+}
+
+.profile {
+  border: 1px solid var(--main-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}

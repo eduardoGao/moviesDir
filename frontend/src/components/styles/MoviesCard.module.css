@@ -1,0 +1,26 @@
+.movie {
+  border: 1px solid var(--main-color);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 12px 0;
+  height: auto;
+  min-width: 200px;
+}
+
+.title {
+  font-size: 16px;
+  /* color: var(--main-color); */
+}
+.director {
+  font-size: 14px;
+  color: #aaaaaa;
+  margin: 14px 0 0;
+}
+.year {
+  font-size: 12px;
+}
+.stream {
+  font-size: 14px;
+  margin: 14px 0 0;
+
+}

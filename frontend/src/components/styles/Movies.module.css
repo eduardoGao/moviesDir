@@ -1,0 +1,35 @@
+.moviesCont {
+  color: var(--white-color);
+  max-width: 950px;
+  margin: 32px auto;
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 8px; */
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.moviesTitle {
+  color: var(--white-color);
+  text-align: center;
+}
+
+.selectButtons {
+  max-width: 950px;
+  margin: 32px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttons {
+  /* text-align: center; */
+  border: 1px solid var(--main-color);
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--dark-color);
+  color: var(--main-color);
+  cursor: pointer;
+  margin-right: 16px;
+}
