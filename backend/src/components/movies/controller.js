@@ -8,8 +8,8 @@ function readMovies() {
     fs.createReadStream('MoviesOnStreamingPlatforms.csv')
       .pipe(csv())
       .on('data', (data) => results.push(data))
-      .on('end', () => resolve(results.slice(0, 10)))
-      //.on('end', () => resolve(results.map(i => i.ID)))
+      .on('end', () => resolve(results.slice(0, 20)))
+      //.on('end', () => resolve(results.filter(i => i.PrimeVideo === '1')))
   })
 }
 
@@ -23,6 +23,9 @@ function getMovie(ID) {
       .on('end', () => resolve(results.find(item => item.ID === ID)))
   })
 }
+
+
+
 
 function readMoviesRanked(rank) {
   // console.log(rank)
@@ -62,8 +65,47 @@ function readMoviesRanked(rank) {
   })
 }
 
+
+
+function getMovieStrem(stream) {
+  return new Promise((resolve, reject) => {
+    if(!stream) {
+      reject('There is no stream company')
+    }
+    const results = []
+
+    if(stream === 'Netflix') {
+      fs.createReadStream('MoviesOnStreamingPlatforms.csv')
+        .pipe(csv())
+        .on('data', (data) => results.push(data))
+        .on('end', () => resolve(results.filter(item => item.Netflix === '1').splice(0, 20)))
+    }
+    if(stream === 'PrimeVideo') {
+      fs.createReadStream('MoviesOnStreamingPlatforms.csv')
+        .pipe(csv())
+        .on('data', (data) => results.push(data))
+        .on('end', () => resolve(results.filter(item => item.PrimeVideo === '1').splice(0, 20)))
+    }
+    if(stream === 'Disney+') {
+      fs.createReadStream('MoviesOnStreamingPlatforms.csv')
+        .pipe(csv())
+        .on('data', (data) => results.push(data))
+        .on('end', () => resolve(results.filter(item => item.Disney === '1').splice(0, 20)))
+    }
+    if(stream === 'Hulu') {
+      fs.createReadStream('MoviesOnStreamingPlatforms.csv')
+        .pipe(csv())
+        .on('data', (data) => results.push(data))
+        .on('end', () => resolve(results.filter(item => item.Hulu === '1').splice(0, 20)))
+    }
+  })
+}
+
+
+
 module.exports = {
   readMovies,
   getMovie,
-  readMoviesRanked
+  readMoviesRanked,
+  getMovieStrem
 }

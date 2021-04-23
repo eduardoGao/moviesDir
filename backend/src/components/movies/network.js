@@ -6,6 +6,7 @@ const router = express.Router()
 
 router.get('/', listMovies)
 router.get('/ranked', listMoviesRank)
+router.get('/stream/:stream', getMovieStrem)
 router.get('/:ID', getMovie)
 
 
@@ -27,6 +28,13 @@ function listMoviesRank(req, res, next) {
   const rank = req.query.rank
 
   Controller.readMoviesRanked(rank)
+    .then(data => response.success(req, res, data))
+    .catch(err => next(err))
+}
+
+function getMovieStrem(req, res, next) {
+  //console.log(req.params.stream)
+  Controller.getMovieStrem(req.params.stream)
     .then(data => response.success(req, res, data))
     .catch(err => next(err))
 }
