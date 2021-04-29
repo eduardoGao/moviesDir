@@ -15,14 +15,14 @@ function Movies() {
   }
 
   useEffect(() => {
-    fetchReq('http://localhost:3001/api/movies')
+    fetchReq('http://localhost:3001/api/movies/all')
     // eslint-disable-next-line
   }, [])
 
   const handleMovies = (e) => {
     const stream = e.target.name
     console.log(stream)
-    fetchReq(`http://localhost:3001/api/movies/stream/${stream}`)
+    fetchReq(`http://localhost:3001/api/movies/${stream}`)
   }
 
   return (

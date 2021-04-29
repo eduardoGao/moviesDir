@@ -4,9 +4,9 @@ const response = require('../../../middlewares/responses')
 
 const router = express.Router()
 
-router.get('/', listMovies)
+router.get('/all', listMovies)
 router.get('/ranked', listMoviesRank)
-router.get('/stream/:stream', getMovieStrem)
+router.get('/:stream', getMovieStrem)
 router.get('/:ID', getMovie)
 
 

@@ -78,7 +78,7 @@ function getMovieStrem(stream) {
       fs.createReadStream('MoviesOnStreamingPlatforms.csv')
         .pipe(csv())
         .on('data', (data) => results.push(data))
-        .on('end', () => resolve(results.filter(item => item.Netflix === '1').splice(0, 20)))
+        .on('end', () => resolve(results.filter(item => item.Netflix === '1').splice(0, 10)))
     }
     if(stream === 'PrimeVideo') {
       fs.createReadStream('MoviesOnStreamingPlatforms.csv')
